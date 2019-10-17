@@ -22,15 +22,15 @@ export class ItemsController {
     return this.itemsService.findOne(id);
   }
   @Post()
-  create(@Body() createItemDto: CreateItemDto): string {
-    return `Name: ${createItemDto.name} Desc: ${createItemDto.description}`;
+  create(@Body() createItemDto: CreateItemDto): Promise<Item> {
+    return this.itemsService.create(createItemDto);
   }
   @Put(':id')
-  update(@Param('id') id, @Body() updateItemDto: CreateItemDto): string {
-    return `Updated item: ${id} with name: ${updateItemDto.name} desc: ${updateItemDto.description}`;
+  update(@Param('id') id, @Body() updateItemDto: CreateItemDto): Promise<Item> {
+    return this.itemsService.update(id, updateItemDto);
   }
   @Delete(':id')
-  delete(@Param('id') id): string {
-    return `Deleted item: ${id}`;
+  delete(@Param('id') id) {
+    return this.itemsService.delete(id);
   }
 }
