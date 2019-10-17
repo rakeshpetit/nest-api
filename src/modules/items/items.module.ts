@@ -24,5 +24,14 @@ export class ItemsModule implements NestModule {
         { path: 'items', method: RequestMethod.POST },
       )
       .forRoutes(ItemsController);
+
+    consumer
+      .apply(logger)
+      .forRoutes('items');
   }
+}
+
+function logger(req, res, next) {
+  console.log(`functional middleware...`);
+  next();
 }
