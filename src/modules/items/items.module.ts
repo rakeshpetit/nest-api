@@ -12,6 +12,6 @@ import { ItemSchema } from './schemas/item.schema';
 })
 export class ItemsModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleware).forRoutes('items');
+    consumer.apply(LoggerMiddleware).forRoutes(ItemsController);
   }
 }
