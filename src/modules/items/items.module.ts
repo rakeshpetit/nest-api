@@ -18,16 +18,12 @@ import { ItemSchema } from './schemas/item.schema';
 export class ItemsModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
-      .apply(LoggerMiddleware)
+      .apply(LoggerMiddleware, logger)
       .exclude(
         { path: 'items', method: RequestMethod.GET },
         { path: 'items', method: RequestMethod.POST },
       )
       .forRoutes(ItemsController);
-
-    consumer
-      .apply(logger)
-      .forRoutes('items');
   }
 }
 
