@@ -1,6 +1,6 @@
-import { Item } from './interfaces/item.interface';
-import { ItemsService } from './items.service';
-import { CreateItemDto } from './dto/create-item.dto';
+import { Item } from '../interfaces/item.interface';
+import { ItemsService } from '../service/items.service';
+import { CreateItemDto } from '../dto/create-item.dto';
 import {
   Controller,
   Get,
