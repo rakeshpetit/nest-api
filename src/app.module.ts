@@ -10,7 +10,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     ItemsModule,
     MongooseModule.forRoot('mongodb://localhost:27017/TodoApp'),
   ],
-  controllers: [AppController, ItemsController],
-  providers: [AppService, ItemsService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

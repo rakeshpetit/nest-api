@@ -9,6 +9,7 @@ import {
   Delete,
   Body,
   Param,
+  HttpCode,
 } from '@nestjs/common';
 @Controller('items')
 export class ItemsController {
@@ -30,7 +31,8 @@ export class ItemsController {
     return this.itemsService.update(id, updateItemDto);
   }
   @Delete(':id')
+  @HttpCode(204)
   delete(@Param('id') id) {
-    return this.itemsService.delete(id);
+    this.itemsService.delete(id);
   }
 }

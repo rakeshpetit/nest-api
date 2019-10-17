@@ -6,7 +6,6 @@ import { ItemSchema } from '../schemas/item.schema';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: 'Item', schema: ItemSchema }])],
-  exports: [MongooseModule.forFeature([{ name: 'Item', schema: ItemSchema }])],
   controllers: [ItemsController],
   providers: [ItemsService],
 })
